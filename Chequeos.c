@@ -7,7 +7,7 @@
 
 
 
-bool EsColoreoPropio(Grafo G, u32* coloreo) {
+bool EsColoreoPropio(Grafo G, const u32* coloreo) {
     bool coloreoPropio = true;
     u32 n = NumeroDeVertices(G);
 

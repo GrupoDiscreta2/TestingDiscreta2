@@ -11,7 +11,8 @@
 
 
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    assert(argc == 1);
 
     Grafo G = NULL;
 
@@ -27,23 +28,26 @@ int main(void) {
         orden[i] = i;
     };
 
-    u32 colores = Greedy(G, orden, coloreo);
 
-    printf("Colores 1er greedy: %u\n", colores);
+    // Aplicar greedy multipes veces
+    u32 k = 10;
+    u32 colores[k];
 
-    OrdenFromKey(n, coloreo, orden);
+    for (u32 i = 0; i < k; i++) {
+        colores[i] = Greedy(G, orden, coloreo);
 
-    colores = Greedy(G, orden, coloreo);
+        printf("Colores %u° greedy: %u\n", i+1, colores[i]);
 
-    printf("Colores 2do greedy: %u\n", colores);
+        assert(EsColoreoPropio(G, coloreo));
 
-    OrdenFromKey(n, coloreo, orden);
+        OrdenFromKey(n, coloreo, orden);
+    }
 
-    colores = Greedy(G, orden, coloreo);
+    // Chequear que la cantidad de colores haya disminuido
+    for (u32 i = 1; i < k; i++) {
+        assert(colores[i] <= colores[i-1]);
+    }
 
-    printf("Colores 3er greedy: %u\n", colores);
-
-    assert(EsColoreoPropio(G, coloreo));
     DestruccionDelGrafo(G);
     free(coloreo);
     free(orden);

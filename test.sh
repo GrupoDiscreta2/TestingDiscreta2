@@ -2,6 +2,8 @@ CC="gcc"
 CFLAGS="-Wall -Wextra -Wno-unused-parameter -Wbad-function-cast\
     -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes"
 
+# Carpetas en donde están los .o de las partes 1 y 2 del proyecto
+# Al ejecutar este script, los .o ya deberían estar creados
 CODIGO_PARTE_1="../ProyectoMDII2022/Código parte 1"
 CODIGO_PARTE_2="../ProyectoMDII2022/Código parte 2"
 

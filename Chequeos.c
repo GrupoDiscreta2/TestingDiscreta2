@@ -7,7 +7,7 @@
 
 u32 CantidadDeColores(u32 n, const u32* coloreo) {
     u32 r = 0;
-    if (n == 0) {
+    if (n != 0) {
         for (u32 i = 0; i < n; i++) {
             r = max(r, coloreo[i]);
         }

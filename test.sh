@@ -9,6 +9,7 @@ CODIGO_PARTE_2="../ProyectoMDII2022/Código parte 2"
 
 EJECUTABLE="a.out"
 
+# Compilar el código que testea
 $CC $CFLAGS -O3 -IInterfaces *.c "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$EJECUTABLE"
 
 # Asumiendo que los grafos a testear están en la carpeta Grafos/

@@ -52,4 +52,5 @@ int main(void) {
     free(coloreo);
     free(orden);
 
+    return EXIT_SUCCESS;
 }

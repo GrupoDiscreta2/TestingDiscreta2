@@ -39,6 +39,7 @@ int main(int argc, char *argv[]) {
         printf("Colores %u° greedy: %u\n", i+1, colores[i]);
 
         assert(EsColoreoPropio(G, coloreo));
+        assert(EsColoreoEficiente(n, coloreo));
 
         OrdenFromKey(n, coloreo, orden);
     }

@@ -1,7 +1,12 @@
-.vscode
+.vscode/
 
 *.o
 a.out
 
+# Ejecutables de los test
 TestBipartitos
 TestGrafos
+
+# Carpetas para guardar los grafos de prueba
+Bipartitos/
+Grafos/

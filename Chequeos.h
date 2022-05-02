@@ -26,5 +26,11 @@ bool EsColoreoPropio(Grafo G, const u32* coloreo);
  */
 bool EsColoreoEficiente(u32 n, const u32* coloreo);
 
+/* Verifica que un coloreo esté compuesto solo de 1's y 2's
+ * O sea, como lo que tiene que devolver la función Bipartito
+ *
+ * No verifica que el coloreo sea propio
+ */
+bool EsColoreoBipartito(u32 n, const u32* coloreo);
 
 #endif

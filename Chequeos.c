@@ -58,3 +58,12 @@ bool EsColoreoEficiente(u32 n, const u32* coloreo) {
     return true;
 }
 
+bool EsColoreoBipartito(u32 n, const u32* coloreo) {
+    for (u32 i = 0; i < n; i++) {
+        if (coloreo[i] != 1 && coloreo[i] != 2) {
+            return false;
+        }
+    }
+    
+    return true;
+}

@@ -9,8 +9,6 @@
 
 #include "Chequeos.h"
 
-
-
 int main(void) {
 
     Grafo G = NULL;
@@ -23,10 +21,9 @@ int main(void) {
 
     u32* orden = calloc(sizeof(u32), n);
 
-    for(u32 i = 0; i < n; i++){
+    for (u32 i = 0; i < n; i++) {
         orden[i] = i;
     };
-
 
     // Aplicar greedy multipes veces
     u32 k = 10;
@@ -35,7 +32,7 @@ int main(void) {
     for (u32 i = 0; i < k; i++) {
         colores[i] = Greedy(G, orden, coloreo);
 
-        printf("Colores %u° greedy: %u\n", i+1, colores[i]);
+        printf("Colores %u° greedy: %u\n", i + 1, colores[i]);
 
         assert(EsColoreoPropio(G, coloreo));
         assert(EsColoreoEficiente(n, coloreo));
@@ -45,7 +42,7 @@ int main(void) {
 
     // Chequear que la cantidad de colores haya disminuido
     for (u32 i = 1; i < k; i++) {
-        assert(colores[i] <= colores[i-1]);
+        assert(colores[i] <= colores[i - 1]);
     }
 
     DestruccionDelGrafo(G);

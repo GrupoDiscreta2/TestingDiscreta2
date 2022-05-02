@@ -9,7 +9,6 @@
 
 #include "Chequeos.h"
 
-
 int main(void) {
     Grafo G = NULL;
 
@@ -29,4 +28,3 @@ int main(void) {
 
     return EXIT_SUCCESS;
 }
-

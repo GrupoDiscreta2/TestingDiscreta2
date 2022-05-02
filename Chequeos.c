@@ -1,9 +1,9 @@
 #include "Chequeos.h"
 
-#include "stdbool.h"
+#include <stdbool.h>
 
-#include "types.h"
 #include "AniquilamientoPositronicoIonizanteGravitatorio.h"
+#include "types.h"
 
 u32 CantidadDeColores(u32 n, const u32* coloreo) {
     u32 r = 0;
@@ -13,7 +13,7 @@ u32 CantidadDeColores(u32 n, const u32* coloreo) {
         }
         r++;
     }
-    
+
     return r;
 }
 
@@ -64,6 +64,6 @@ bool EsColoreoBipartito(u32 n, const u32* coloreo) {
             return false;
         }
     }
-    
+
     return true;
 }

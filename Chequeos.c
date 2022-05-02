@@ -36,7 +36,7 @@ bool EsColoreoPropio(Grafo G, const u32* coloreo) {
 bool EsColoreoEficiente(u32 n, const u32* coloreo) {
     u32 r = CantidadDeColores(n, coloreo);
 
-    if (r >= n) {
+    if (r > n) {
         return false;
     }
 

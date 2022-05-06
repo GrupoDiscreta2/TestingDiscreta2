@@ -38,6 +38,7 @@ int main(void) {
         assert(EsColoreoEficiente(n, coloreo));
 
         OrdenFromKey(n, coloreo, orden);
+        assert(OrdenEsPermutacion(n, orden));
     }
 
     // Chequear que la cantidad de colores haya disminuido

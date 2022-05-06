@@ -31,4 +31,8 @@ bool EsColoreoEficiente(u32 n, const u32* coloreo);
  */
 bool EsColoreoBipartito(u32 n, const u32* coloreo);
 
+/* Verifica que orden sea una permutación de los números 0, 1, …, n-1
+ */
+bool OrdenEsPermutacion(u32 n, u32* orden);
+
 #endif

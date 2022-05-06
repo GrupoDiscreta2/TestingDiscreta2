@@ -1,6 +1,8 @@
 #include "Chequeos.h"
 
+#include <assert.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "AniquilamientoPositronicoIonizanteGravitatorio.h"
 #include "types.h"
@@ -65,5 +67,22 @@ bool EsColoreoBipartito(u32 n, const u32* coloreo) {
         }
     }
 
+    return true;
+}
+
+bool OrdenEsPermutacion(u32 n, u32* orden) {
+    bool* aux = calloc(n, sizeof(bool));
+
+    assert(aux != NULL);
+
+    for (u32 i = 0; i < n; i++) {
+        if (orden[i] >= n || aux[orden[i]] == true) {
+            free(aux);
+            return false;
+        }
+        aux[orden[i]] = true;
+    }
+
+    free(aux);
     return true;
 }

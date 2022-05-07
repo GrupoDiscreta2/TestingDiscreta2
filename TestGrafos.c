@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "types.h"
 
@@ -26,13 +27,20 @@ int main(void) {
     };
 
     // Aplicar greedy multipes veces
-    u32 k = 10;
+    u32 k = 1;
     u32 colores[k];
 
     for (u32 i = 0; i < k; i++) {
+
+        // Medir tiempo
+        clock_t t = clock();
+
         colores[i] = Greedy(G, orden, coloreo);
 
-        printf("Colores %u° greedy: %u\n", i + 1, colores[i]);
+        t = clock() - t;
+        double time_taken = ((double)t)/CLOCKS_PER_SEC;
+
+        printf("Colores %u° greedy: %u (tiempo %fs)\n", i + 1, colores[i], time_taken);
 
         assert(EsColoreoPropio(G, coloreo));
         assert(EsColoreoEficiente(n, coloreo));

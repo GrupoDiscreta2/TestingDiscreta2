@@ -27,17 +27,20 @@ int main(void) {
     };
 
     // Aplicar greedy multipes veces
-    u32 k = 1;
+    u32 k = 10;
     u32 colores[k];
+
+    // Medir tiempo
+    clock_t t_total = 0;
 
     for (u32 i = 0; i < k; i++) {
 
-        // Medir tiempo
         clock_t t = clock();
 
         colores[i] = Greedy(G, orden, coloreo);
 
         t = clock() - t;
+        t_total += t;
         double time_taken = ((double)t)/CLOCKS_PER_SEC;
 
         printf("Colores %u° greedy: %u (tiempo %fs)\n", i + 1, colores[i], time_taken);
@@ -67,6 +70,8 @@ int main(void) {
         OrdenFromKey(n, coloreo, orden);
         assert(OrdenEsPermutacion(n, orden));
     }
+
+    printf("Tiempo total: %fs\n", ((double)t_total)/CLOCKS_PER_SEC);
 
     // Chequear que la cantidad de colores haya disminuido
     for (u32 i = 1; i < k; i++) {

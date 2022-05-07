@@ -37,6 +37,25 @@ int main(void) {
         assert(EsColoreoPropio(G, coloreo));
         assert(EsColoreoEficiente(n, coloreo));
 
+        { // Test de recoloreos
+            u32* nuevoColoreo = PermutarColores(n, coloreo, rand());
+            assert(EsColoreoPropio(G, nuevoColoreo));
+            assert(EsColoreoEficiente(n, nuevoColoreo));
+
+            u32* coloreoDecreciente = RecoloreoCardinalidadDecrecienteBC(n, coloreo);
+            assert(EsColoreoPropio(G, coloreoDecreciente));
+            assert(EsColoreoEficiente(n, coloreoDecreciente));
+            free(coloreoDecreciente);
+
+            coloreoDecreciente = RecoloreoCardinalidadDecrecienteBC(n, nuevoColoreo);
+            assert(EsColoreoPropio(G, coloreoDecreciente));
+            assert(EsColoreoEficiente(n, coloreoDecreciente));
+
+            free(coloreoDecreciente);
+
+            free(nuevoColoreo);
+        }
+
         OrdenFromKey(n, coloreo, orden);
         assert(OrdenEsPermutacion(n, orden));
     }

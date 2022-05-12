@@ -6,7 +6,7 @@ FILES="Chequeos.c"
 
 # Carpetas en donde están los .o de las partes 1 y 2 del proyecto
 # Al ejecutar este script, los .o ya deberían estar creados
-CODIGO_PARTE_1="../ProyectoMDII2022/Código parte 1"
+CODIGO_PARTE_1="../P1"
 CODIGO_PARTE_2="../ProyectoMDII2022/Código parte 2"
 
 TEST_GRAFOS="TestGrafos"
@@ -36,5 +36,5 @@ done
 for file in NoBipartitos/*
 do
     echo "Testeando con '$file' (No Bipartito)"
-    ./$TEST_NO_BIPARTITOS < "$file" || exit 1 # exit 1 para que si falla un test termine todo automáticamente
+    "./$TEST_NO_BIPARTITOS" < "$file" || exit 1 # exit 1 para que si falla un test termine todo automáticamente
 done

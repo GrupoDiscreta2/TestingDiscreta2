@@ -27,7 +27,7 @@ int main(void) {
     };
 
     // Aplicar greedy multipes veces
-    u32 k = 10;
+    u32 k = 1;
     u32 colores[k];
 
     // Medir tiempo

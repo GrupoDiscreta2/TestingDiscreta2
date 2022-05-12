@@ -6,7 +6,9 @@ a.out
 # Ejecutables de los test
 TestBipartitos
 TestGrafos
+TestNoBipartitos
 
 # Carpetas para guardar los grafos de prueba
 Bipartitos/
 Grafos/
+NoBipartitos/

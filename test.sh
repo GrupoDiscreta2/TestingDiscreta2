@@ -11,13 +11,15 @@ CODIGO_PARTE_2="../ProyectoMDII2022/Código parte 2"
 
 TEST_GRAFOS="TestGrafos"
 TEST_BIPARTITOS="TestBipartitos"
+TEST_NO_BIPARTITOS="TestNoBipartitos"
 
 # Compilar los códigos que testea
-$CC $CFLAGS -O3 -IInterfaces "$FILES" "$TEST_GRAFOS.c" "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$TEST_GRAFOS"
-$CC $CFLAGS -O3 -IInterfaces "$FILES" "$TEST_BIPARTITOS.c" "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$TEST_BIPARTITOS"
+$CC $CFLAGS -O3 -IInterfaces "$FILES" "$TEST_GRAFOS.c" "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$TEST_GRAFOS" || exit 1
+$CC $CFLAGS -O3 -IInterfaces "$FILES" "$TEST_BIPARTITOS.c" "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$TEST_BIPARTITOS" || exit 1
+$CC $CFLAGS -O3 -IInterfaces "$FILES" "$TEST_NO_BIPARTITOS.c" "$CODIGO_PARTE_1"/*.o "$CODIGO_PARTE_2"/*.o -o "$TEST_NO_BIPARTITOS" || exit 1
 
 # Asumiendo que los grafos a testear están en la carpeta Grafos/
-for file in Grafos/* Bipartitos/*
+for file in Grafos/* Bipartitos/* NoBipartitos/*
 do
     echo "Testeando con '$file'"
     "./$TEST_GRAFOS" < "$file" || exit 1 # exit 1 para que si falla un test termine todo automáticamente
@@ -31,3 +33,8 @@ do
     "./$TEST_BIPARTITOS" < "$file" || exit 1 # exit 1 para que si falla un test termine todo automáticamente
 done
 
+for file in NoBipartitos/*
+do
+    echo "Testeando con '$file' (No Bipartito)"
+    ./$TEST_NO_BIPARTITOS < "$file" || exit 1 # exit 1 para que si falla un test termine todo automáticamente
+done
